@@ -110,22 +110,6 @@ img { max-width: 100%; display: block; }
   opacity: 1;
 }
 
-/* Transparent header over a dark hero (top page): white logo & nav, no bg until scrolled */
-.header.header-over-dark:not(.scrolled) .logo-img {
-  filter: brightness(0) invert(1);
-  opacity: 0.95;
-}
-.header.header-over-dark:not(.scrolled) .nav a {
-  color: rgba(255,255,255,0.8);
-}
-.header.header-over-dark:not(.scrolled) .nav a:hover,
-.header.header-over-dark:not(.scrolled) .nav a.active {
-  color: var(--gold-light);
-}
-.header.header-over-dark:not(.scrolled) .hamburger span {
-  background: var(--white);
-}
-
 .nav {
   display: flex;
   align-items: center;
