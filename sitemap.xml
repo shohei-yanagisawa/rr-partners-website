@@ -41,16 +41,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rr-partners.co.jp/service-ma.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rr-partners.co.jp/service-product.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://www.rr-partners.co.jp/recruit.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
