@@ -22,11 +22,11 @@
   position: absolute;
   inset: 0;
   background:
-    /* 中央を白く起こして色ロゴ・本文の可読性を確保（回路基板は密なので強め） */
-    radial-gradient(ellipse at 50% 46%, rgba(246,247,249,0.86) 0%, rgba(246,247,249,0.45) 46%, rgba(246,247,249,0.12) 100%),
-    radial-gradient(ellipse at 22% 22%, rgba(184,148,46,0.08) 0%, transparent 55%),
+    /* 左を強く白く起こしてコピーの可読性を確保し、右に回路を覗かせる（エディトリアル） */
+    linear-gradient(95deg, rgba(246,247,249,0.94) 0%, rgba(246,247,249,0.80) 34%, rgba(246,247,249,0.40) 66%, rgba(246,247,249,0.14) 100%),
+    radial-gradient(ellipse at 18% 42%, rgba(184,148,46,0.08) 0%, transparent 52%),
     /* ほのかに紺へ寄せてサイバー感 */
-    linear-gradient(180deg, rgba(26,45,74,0.06) 0%, rgba(26,45,74,0.10) 100%),
+    linear-gradient(180deg, rgba(26,45,74,0.05) 0%, rgba(26,45,74,0.10) 100%),
     /* セキュリティ調：細かいグリッド */
     repeating-linear-gradient(0deg, rgba(15,28,50,0.04) 0 1px, transparent 1px 44px),
     repeating-linear-gradient(90deg, rgba(15,28,50,0.04) 0 1px, transparent 1px 44px);
@@ -63,10 +63,24 @@
 .idx-hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   color: var(--navy-dark);
   width: 100%;
-  padding: 0 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.idx-hero-eyebrow {
+  font-family: var(--font-en);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: mvvFadeUp 0.8s 0.5s forwards;
 }
 
 .idx-hero-logo {
@@ -80,12 +94,12 @@
 }
 
 .idx-hero-divider {
-  width: 48px;
-  height: 1px;
+  width: 56px;
+  height: 2px;
   background: var(--gold-gradient);
-  margin: 0 auto 24px;
+  margin: 0 0 26px;
   opacity: 0;
-  animation: mvvFadeUp 0.8s 0.5s forwards;
+  animation: mvvFadeUp 0.8s 0.6s forwards;
 }
 
 .idx-hero-tagline {
@@ -645,6 +659,16 @@
   .idx-hero::after { inset: 16px; }
   .idx-hero-cta { margin-top: 28px; gap: 12px; }
   .idx-hero-btn { padding: 11px 26px; font-size: 0.8rem; }
+  .idx-hero-content { padding: 0 24px; }
+  .idx-hero-divider { margin: 0 0 20px; }
+  .idx-hero-eyebrow { font-size: 0.66rem; letter-spacing: 0.26em; }
+  /* スマホは左寄せでも全幅近くに回り込むため、ヴェールを概ね均一に */
+  .idx-hero-overlay {
+    background:
+      linear-gradient(100deg, rgba(246,247,249,0.94) 0%, rgba(246,247,249,0.84) 55%, rgba(246,247,249,0.58) 100%),
+      repeating-linear-gradient(0deg, rgba(15,28,50,0.04) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(90deg, rgba(15,28,50,0.04) 0 1px, transparent 1px 44px);
+  }
 
   .idx-section { padding: 72px 0; }
   .idx-section-inner { padding: 0 20px; }
