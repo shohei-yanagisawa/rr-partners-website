@@ -10,7 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8f7f5;
+  background-color: #0a1322;
+  background-image: url("img/security-band.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -18,11 +22,12 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 25% 40%, rgba(184,148,46,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 60%, rgba(26,45,74,0.06) 0%, transparent 55%),
-    /* セキュリティ調：細かいグリッド（暗号ブロックのメタファー） */
-    repeating-linear-gradient(0deg, rgba(15,28,50,0.035) 0 1px, transparent 1px 40px),
-    repeating-linear-gradient(90deg, rgba(15,28,50,0.035) 0 1px, transparent 1px 40px);
+    radial-gradient(ellipse at 50% 32%, rgba(184,148,46,0.13) 0%, transparent 55%),
+    /* セキュリティ調：細かいグリッド */
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 46px),
+    /* 紺×金デュオトーンで写真を馴染ませる */
+    linear-gradient(135deg, rgba(10,21,37,0.92) 0%, rgba(15,28,50,0.80) 50%, rgba(10,19,34,0.93) 100%);
   pointer-events: none;
 }
 
@@ -57,19 +62,19 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  color: var(--navy-dark);
+  color: var(--white);
   width: 100%;
   padding: 0 20px;
 }
 
 .idx-hero-logo {
-  height: 155px;
+  height: 150px;
   margin: 0 auto 32px;
   position: relative;
   left: 5px;
   opacity: 0;
   animation: mvvFadeUp 1s 0.2s forwards;
-  filter: drop-shadow(0 4px 24px rgba(184,148,46,0.12));
+  filter: drop-shadow(0 6px 30px rgba(0,0,0,0.45));
 }
 
 .idx-hero-divider {
@@ -97,7 +102,8 @@
   font-weight: 900;
   letter-spacing: 0.1em;
   line-height: 1.42;
-  color: var(--navy-dark);
+  color: var(--white);
+  text-shadow: 0 2px 36px rgba(0,0,0,0.5);
   opacity: 0;
   animation: mvvFadeUp 0.8s 0.9s forwards;
 }
@@ -117,7 +123,7 @@
   font-family: var(--font-en);
   font-size: 0.6rem;
   letter-spacing: 0.25em;
-  color: rgba(15,28,50,0.3);
+  color: rgba(255,255,255,0.45);
 }
 
 .idx-hero-scroll-line {
@@ -523,82 +529,6 @@
   line-height: 1.8;
 }
 
-/* ---- Image Band (parallax, security photo with navy×gold duotone) ---- */
-.idx-band {
-  position: relative;
-  padding: 170px 0;
-  background-image: url("img/security-band.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow: hidden;
-}
-
-.idx-band::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 30%, rgba(184,148,46,0.12) 0%, transparent 55%),
-    linear-gradient(135deg, rgba(10,21,37,0.93) 0%, rgba(15,28,50,0.82) 50%, rgba(10,19,34,0.94) 100%);
-}
-
-.idx-band::after {
-  /* 細かいグリッドを重ねてセキュリティ調に */
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 46px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 46px);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 85%);
-  mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 85%);
-}
-
-.idx-band-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-  text-align: center;
-  color: var(--white);
-}
-
-.idx-band-kicker {
-  font-family: var(--font-en);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-}
-
-.idx-band-line {
-  width: 48px;
-  height: 1px;
-  background: var(--gold-gradient);
-  margin: 18px auto 26px;
-}
-
-.idx-band-title {
-  font-size: clamp(1.8rem, 4.2vw, 3rem);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 1.7;
-  margin-bottom: 26px;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.45);
-}
-
-.idx-band-text {
-  max-width: 660px;
-  margin: 0 auto;
-  font-size: 0.95rem;
-  line-height: 2.1;
-  color: rgba(255,255,255,0.72);
-}
-
 /* ---- CTA ---- */
 .idx-cta {
   background: #f8f7f5;
@@ -698,14 +628,6 @@
   .idx-section-inner { padding: 0 20px; }
 
   .idx-heading { font-size: 1.4rem; }
-
-  /* スマホはfixedパララックスを無効化（iOSで崩れるため） */
-  .idx-band {
-    background-attachment: scroll;
-    padding: 90px 0;
-  }
-  .idx-band-inner { padding: 0 20px; }
-  .idx-band-title { line-height: 1.6; }
 
   .idx-statement {
     font-size: 1.1rem;
