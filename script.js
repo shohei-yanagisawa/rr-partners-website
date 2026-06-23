@@ -140,10 +140,10 @@
     draw();
   }
 
-  // Hero（明るい背景）：ネイビー線＋ゴールドのアクセント
+  // Hero（紺の没入背景）：明るめの線＋ゴールドのアクセントで浮かせる
   initSecurityMesh(document.getElementById('heroCanvas'), {
-    lineRGB: '20, 50, 100', nodeRGB: '20, 50, 100', goldRGB: '184, 148, 46',
-    density: 9500, maxNodes: 130, linkDist: 160, baseAlpha: 1,
+    lineRGB: '120, 160, 220', nodeRGB: '160, 190, 235', goldRGB: '212, 175, 55',
+    density: 8500, maxNodes: 150, linkDist: 165, baseAlpha: 1.2,
   });
 
   // Mission / Values（紺の暗い背景・canvasは低opacity）：明るめの線で浮かせる
@@ -187,7 +187,9 @@ function initReveal() {
     '.about-text', '.value-item', '.biz-card',
     '.insight-card', '.company-row', '.recruit-inner',
     '.service-preview', '.message-content', '.news-item',
-    '.philosophy-card', '.contact-info', '.contact-form'
+    '.philosophy-card', '.contact-info', '.contact-form',
+    '.idx-statement', '.idx-description', '.idx-pillar',
+    '.idx-value-card', '.idx-service-lead'
   ];
   const elements = document.querySelectorAll(selectors.join(', '));
   elements.forEach(el => el.classList.add('reveal'));
