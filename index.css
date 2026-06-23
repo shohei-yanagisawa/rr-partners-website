@@ -111,6 +111,25 @@
   animation: mvvFadeUp 0.8s 0.9s forwards;
 }
 
+/* 英語の大見出し（ブティック／Kingsman調）— Inter Caps */
+.idx-hero-title-en {
+  font-family: 'Inter', var(--font-en), sans-serif;
+  font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
+}
+
+.idx-hero-sub {
+  margin-top: 24px;
+  font-size: clamp(0.86rem, 1.7vw, 1.08rem);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--navy-dark);
+  opacity: 0;
+  animation: mvvFadeUp 0.8s 1.05s forwards;
+}
+
 .idx-hero-scroll {
   position: absolute;
   bottom: 36px;
