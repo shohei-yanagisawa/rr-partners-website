@@ -22,12 +22,14 @@
   position: absolute;
   inset: 0;
   background:
-    /* 中央を白く起こして色ロゴ・本文の可読性を確保 */
-    radial-gradient(ellipse at 50% 46%, rgba(248,247,245,0.66) 0%, rgba(248,247,245,0.22) 52%, transparent 100%),
-    radial-gradient(ellipse at 22% 22%, rgba(184,148,46,0.07) 0%, transparent 55%),
+    /* 中央を白く起こして色ロゴ・本文の可読性を確保（回路基板は密なので強め） */
+    radial-gradient(ellipse at 50% 46%, rgba(246,247,249,0.86) 0%, rgba(246,247,249,0.45) 46%, rgba(246,247,249,0.12) 100%),
+    radial-gradient(ellipse at 22% 22%, rgba(184,148,46,0.08) 0%, transparent 55%),
+    /* ほのかに紺へ寄せてサイバー感 */
+    linear-gradient(180deg, rgba(26,45,74,0.06) 0%, rgba(26,45,74,0.10) 100%),
     /* セキュリティ調：細かいグリッド */
-    repeating-linear-gradient(0deg, rgba(15,28,50,0.035) 0 1px, transparent 1px 44px),
-    repeating-linear-gradient(90deg, rgba(15,28,50,0.035) 0 1px, transparent 1px 44px);
+    repeating-linear-gradient(0deg, rgba(15,28,50,0.04) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(15,28,50,0.04) 0 1px, transparent 1px 44px);
   pointer-events: none;
 }
 
