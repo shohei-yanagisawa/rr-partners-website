@@ -90,7 +90,8 @@
   font-family: var(--font-en);
   font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
   opacity: 0;
