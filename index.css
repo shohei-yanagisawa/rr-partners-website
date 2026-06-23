@@ -138,6 +138,114 @@
   50% { opacity: 1; }
 }
 
+/* ---- Hero polish (premium / security-chic) ---- */
+/* 額装フレーム（HUD的な枠） */
+.idx-hero::after {
+  content: '';
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(184,148,46,0.20);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* キーワードのゴールドグラデーション文字 */
+.idx-hl {
+  background: linear-gradient(135deg, #b8942e 0%, #d4af37 45%, #8c7533 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* タグラインを左右の線で挟む */
+.idx-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.idx-hero-tagline::before,
+.idx-hero-tagline::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+/* CTA ボタン */
+.idx-hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+  opacity: 0;
+  animation: mvvFadeUp 0.8s 1.1s forwards;
+}
+
+.idx-hero-btn {
+  display: inline-block;
+  padding: 13px 38px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+  border: 1px solid rgba(15,28,50,0.25);
+  color: var(--navy-dark);
+  transition: all 0.3s;
+}
+
+.idx-hero-btn:hover {
+  border-color: var(--navy-dark);
+  background: rgba(15,28,50,0.05);
+}
+
+.idx-hero-btn-primary {
+  background: var(--navy-dark);
+  color: var(--white);
+  border-color: var(--navy-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.idx-hero-btn-primary::after {
+  /* ホバー時に走るゴールドのシマー */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.45), transparent);
+  transition: left 0.5s;
+}
+
+.idx-hero-btn-primary:hover {
+  background: #14233d;
+}
+.idx-hero-btn-primary:hover::after { left: 130%; }
+
+/* ---- Statement / Pillar polish ---- */
+.idx-statement {
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.idx-mission-pillars .idx-pillar {
+  position: relative;
+}
+.idx-mission-pillars .idx-pillar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.idx-mission-pillars .idx-pillar:hover::before { transform: scaleX(1); }
+
 /* ---- Sections Common ---- */
 .idx-section {
   position: relative;
@@ -504,7 +612,11 @@
   .idx-hero-scroll { left: 46%; }
   .idx-hero-title { font-size: clamp(1.5rem, 6vw, 2.2rem); letter-spacing: 0.05em; }
   .idx-hero-tagline { font-size: 0.68rem; letter-spacing: 0.25em; }
+  .idx-hero-tagline::before, .idx-hero-tagline::after { width: 22px; }
   .idx-hero-divider { width: 36px; }
+  .idx-hero::after { inset: 16px; }
+  .idx-hero-cta { margin-top: 28px; gap: 12px; }
+  .idx-hero-btn { padding: 11px 26px; font-size: 0.8rem; }
 
   .idx-section { padding: 72px 0; }
   .idx-section-inner { padding: 0 20px; }
