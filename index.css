@@ -373,18 +373,20 @@
   max-width: 680px;
 }
 
-/* ---- Mission ---- */
+/* ---- Mission（明色：ヒーローの濃紺から開放感を出す） ---- */
 .idx-mission {
-  background: #0c1a2e;
-  color: var(--white);
+  background: #f6f4ef;
+  color: var(--text);
 }
 
+.idx-mission .idx-bg-canvas { display: none; }
+
 .idx-mission .idx-description {
-  color: rgba(255,255,255,0.55);
+  color: var(--text-light);
 }
 
 .idx-mission .idx-statement {
-  color: var(--white);
+  color: var(--navy-dark);
 }
 
 .idx-mission-pillars {
@@ -397,15 +399,16 @@
 .idx-pillar {
   text-align: center;
   padding: 40px 24px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(184,148,46,0.12);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 4px;
   transition: all 0.4s;
 }
 
 .idx-pillar:hover {
-  border-color: rgba(184,148,46,0.35);
-  background: rgba(184,148,46,0.05);
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 14px 38px rgba(15,28,50,0.08);
   transform: translateY(-4px);
 }
 
@@ -413,7 +416,7 @@
   width: 52px;
   height: 52px;
   margin: 0 auto 20px;
-  color: var(--gold-light);
+  color: var(--gold);
 }
 
 .idx-pillar-icon svg {
@@ -423,22 +426,38 @@
 
 .idx-pillar h4 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
   letter-spacing: 0.04em;
+  color: var(--navy-dark);
 }
 
 .idx-pillar p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-light);
   line-height: 1.7;
 }
 
-/* ---- Vision ---- */
+/* ---- Vision（濃紺：中央の没入セクション） ---- */
 .idx-vision {
-  background: var(--white);
-  color: var(--text);
+  background:
+    radial-gradient(ellipse at 78% 28%, rgba(184,148,46,0.08) 0%, transparent 55%),
+    #0c1a2e;
+  color: var(--white);
 }
+
+.idx-vision::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 46px);
+  pointer-events: none;
+}
+
+.idx-vision .idx-statement { color: var(--white); }
+.idx-vision .idx-description { color: rgba(255,255,255,0.62); }
 
 .idx-vision-stats {
   display: flex;
@@ -477,14 +496,16 @@
   letter-spacing: 0.04em;
 }
 
-/* ---- Values ---- */
+/* ---- Values（明色） ---- */
 .idx-values {
-  background: #0c1a2e;
-  color: var(--white);
+  background: var(--white);
+  color: var(--text);
 }
 
+.idx-values .idx-bg-canvas { display: none; }
+
 .idx-values .idx-statement {
-  color: var(--white);
+  color: var(--navy-dark);
 }
 
 .idx-values-grid {
@@ -496,8 +517,8 @@
 
 .idx-value-card {
   padding: 40px 28px;
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(184,148,46,0.1);
+  background: var(--off-white);
+  border: 1px solid var(--border);
   border-radius: 4px;
   transition: all 0.4s;
   position: relative;
@@ -518,8 +539,9 @@
 }
 
 .idx-value-card:hover {
-  border-color: rgba(184,148,46,0.3);
-  background: rgba(184,148,46,0.04);
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 14px 38px rgba(15,28,50,0.08);
   transform: translateY(-4px);
 }
 
@@ -542,6 +564,7 @@
   font-weight: 600;
   margin-bottom: 12px;
   letter-spacing: 0.02em;
+  color: var(--navy-dark);
 }
 
 .r-accent {
@@ -554,15 +577,15 @@
   display: block;
   font-family: var(--font-jp);
   font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--gold-light);
+  font-weight: 500;
+  color: var(--gold);
   margin-top: 4px;
   letter-spacing: 0.08em;
 }
 
 .idx-value-card p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-light);
   line-height: 1.8;
 }
 
