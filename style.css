@@ -129,7 +129,7 @@ img { max-width: 100%; display: block; }
 /* Homepage hero header (transparent over dark hero, not yet scrolled):
    keep the COLOR logo readable via a soft light halo, and use white nav. */
 .header.header-hero:not(.scrolled) .logo-link {
-  background: radial-gradient(ellipse 78% 64% at 36% 50%,
+  background: radial-gradient(ellipse 78% 64% at 47% 50%,
     rgba(248,247,245,0.92) 0%, rgba(248,247,245,0.55) 42%, rgba(248,247,245,0) 72%);
   border-radius: 8px;
 }
