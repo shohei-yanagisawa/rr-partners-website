@@ -788,6 +788,25 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 18px 48px rgba(10,21,37,0.45);
 }
 
+/* 準備中の事業カード（詳細ページ・外部サイトが未公開のもの） */
+.biz-card-soon { cursor: default; }
+.biz-card-soon:hover {
+  border-color: var(--border);
+  transform: none;
+  box-shadow: none;
+}
+.biz-card-soon:hover::before { transform: scaleX(0); }
+.biz-soon-tag {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  border: 1px solid rgba(184, 148, 46, 0.45);
+  padding: 4px 12px;
+}
+
 .biz-card-dark h3 { color: var(--white); }
 .biz-card-dark p { color: rgba(255,255,255,0.62); }
 .biz-card-dark .biz-card-num { color: var(--gold-light); }

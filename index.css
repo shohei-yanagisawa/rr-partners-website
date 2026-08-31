@@ -515,6 +515,11 @@
   margin-top: 16px;
 }
 
+/* 3列グリッドで7個のとき、最後のカードを全幅にして孤立させない */
+.idx-values-grid .idx-value-card:nth-child(7):last-child {
+  grid-column: 1 / -1;
+}
+
 .idx-value-card {
   padding: 40px 28px;
   background: var(--off-white);
