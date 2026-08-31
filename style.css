@@ -110,6 +110,44 @@ img { max-width: 100%; display: block; }
   opacity: 1;
 }
 
+/* Transparent header over a dark hero (top page): white logo & nav, no bg until scrolled */
+.header.header-over-dark:not(.scrolled) .logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+.header.header-over-dark:not(.scrolled) .nav a {
+  color: rgba(255,255,255,0.8);
+}
+.header.header-over-dark:not(.scrolled) .nav a:hover,
+.header.header-over-dark:not(.scrolled) .nav a.active {
+  color: var(--gold-light);
+}
+.header.header-over-dark:not(.scrolled) .hamburger span {
+  background: var(--white);
+}
+
+/* Homepage hero header (transparent over dark hero, not yet scrolled):
+   keep the COLOR logo readable via a soft light halo, and use white nav. */
+.header.header-hero:not(.scrolled) .logo-link {
+  background: radial-gradient(ellipse 78% 64% at 47% 50%,
+    rgba(248,247,245,0.92) 0%, rgba(248,247,245,0.55) 42%, rgba(248,247,245,0) 72%);
+  border-radius: 8px;
+}
+.header.header-hero:not(.scrolled) .logo-img {
+  filter: none;
+  opacity: 1;
+}
+.header.header-hero:not(.scrolled) .nav a {
+  color: rgba(255,255,255,0.82);
+}
+.header.header-hero:not(.scrolled) .nav a:hover,
+.header.header-hero:not(.scrolled) .nav a.active {
+  color: var(--gold-light);
+}
+.header.header-hero:not(.scrolled) .hamburger span {
+  background: var(--white);
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -724,6 +762,55 @@ img { max-width: 100%; display: block; }
   border-color: var(--gold);
   background: var(--navy);
 }
+
+/* Dark emphasized card (square, stands out) */
+.biz-card-dark {
+  background: linear-gradient(140deg, #0f1c32 0%, #16243d 55%, #1a2d4a 100%);
+  color: var(--white);
+  border-color: rgba(184,148,46,0.25);
+}
+
+.biz-card-dark::after {
+  /* セキュリティ調の微細グリッド */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(184,148,46,0.04) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(90deg, rgba(184,148,46,0.04) 0 1px, transparent 1px 22px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.biz-card-dark:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(10,21,37,0.45);
+}
+
+/* 準備中の事業カード（詳細ページ・外部サイトが未公開のもの） */
+.biz-card-soon { cursor: default; }
+.biz-card-soon:hover {
+  border-color: var(--border);
+  transform: none;
+  box-shadow: none;
+}
+.biz-card-soon:hover::before { transform: scaleX(0); }
+.biz-soon-tag {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  border: 1px solid rgba(184, 148, 46, 0.45);
+  padding: 4px 12px;
+}
+
+.biz-card-dark h3 { color: var(--white); }
+.biz-card-dark p { color: rgba(255,255,255,0.62); }
+.biz-card-dark .biz-card-num { color: var(--gold-light); }
+.biz-card-dark > * { position: relative; z-index: 1; }
 
 .biz-card-num {
   font-family: var(--font-en);

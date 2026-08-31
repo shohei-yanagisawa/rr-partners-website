@@ -10,7 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8f7f5;
+  background-color: #0a1322;
+  background-image: url("img/hero-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -18,17 +22,63 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 25% 40%, rgba(184,148,46,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 60%, rgba(26,45,74,0.06) 0%, transparent 55%);
+    /* 左を濃い紺で締めて白コピーを際立たせ、右に写真を覗かせる（エディトリアル） */
+    linear-gradient(95deg, rgba(8,17,32,0.88) 0%, rgba(11,22,40,0.70) 42%, rgba(11,22,40,0.44) 72%, rgba(11,22,40,0.30) 100%),
+    radial-gradient(ellipse at 18% 40%, rgba(184,148,46,0.12) 0%, transparent 55%),
+    /* セキュリティ調：細かいグリッド（明色） */
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 44px);
+  pointer-events: none;
+}
+
+/* 走査線（スキャン）エフェクト */
+.idx-hero-overlay::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(184,148,46,0.05) 45%,
+    rgba(184,148,46,0.10) 50%,
+    rgba(184,148,46,0.05) 55%,
+    transparent 100%);
+  animation: idxScan 7s linear infinite;
+}
+
+@keyframes idxScan {
+  0%   { transform: translateY(-200px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .idx-hero-overlay::after { animation: none; opacity: 0; }
 }
 
 .idx-hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: var(--navy-dark);
+  text-align: left;
+  color: var(--white);
   width: 100%;
-  padding: 0 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.idx-hero-eyebrow {
+  font-family: var(--font-en);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: mvvFadeUp 0.8s 0.5s forwards;
 }
 
 .idx-hero-logo {
@@ -38,23 +88,24 @@
   left: 5px;
   opacity: 0;
   animation: mvvFadeUp 1s 0.2s forwards;
-  filter: drop-shadow(0 4px 24px rgba(184,148,46,0.12));
+  filter: drop-shadow(0 6px 26px rgba(15,28,50,0.18));
 }
 
 .idx-hero-divider {
-  width: 48px;
-  height: 1px;
+  width: 56px;
+  height: 2px;
   background: var(--gold-gradient);
-  margin: 0 auto 24px;
+  margin: 0 0 26px;
   opacity: 0;
-  animation: mvvFadeUp 0.8s 0.5s forwards;
+  animation: mvvFadeUp 0.8s 0.6s forwards;
 }
 
 .idx-hero-tagline {
   font-family: var(--font-en);
   font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 20px;
   opacity: 0;
@@ -62,13 +113,36 @@
 }
 
 .idx-hero-title {
-  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-size: clamp(2.2rem, 5.8vw, 4rem);
   font-weight: 900;
   letter-spacing: 0.1em;
-  line-height: 1.4;
+  line-height: 1.42;
   color: var(--navy-dark);
+  text-shadow: 0 2px 20px rgba(248,247,245,0.6);
   opacity: 0;
   animation: mvvFadeUp 0.8s 0.9s forwards;
+}
+
+/* 英語の大見出し（ブティック／Kingsman調）— Inter Caps */
+.idx-hero-title-en {
+  font-family: 'Inter', var(--font-en), sans-serif;
+  font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
+  color: var(--white);
+  text-shadow: 0 2px 30px rgba(0,0,0,0.45);
+}
+
+.idx-hero-sub {
+  margin-top: 26px;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  animation: mvvFadeUp 0.8s 1.05s forwards;
 }
 
 .idx-hero-scroll {
@@ -86,7 +160,7 @@
   font-family: var(--font-en);
   font-size: 0.6rem;
   letter-spacing: 0.25em;
-  color: rgba(15,28,50,0.3);
+  color: rgba(255,255,255,0.5);
 }
 
 .idx-hero-scroll-line {
@@ -106,6 +180,114 @@
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
+
+/* ---- Hero polish (premium / security-chic) ---- */
+/* 額装フレーム（HUD的な枠） */
+.idx-hero::after {
+  content: '';
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(184,148,46,0.20);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* キーワードのゴールドグラデーション文字 */
+.idx-hl {
+  background: linear-gradient(135deg, #b8942e 0%, #d4af37 45%, #8c7533 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* タグラインを左右の線で挟む */
+.idx-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.idx-hero-tagline::before,
+.idx-hero-tagline::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+/* CTA ボタン */
+.idx-hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+  opacity: 0;
+  animation: mvvFadeUp 0.8s 1.1s forwards;
+}
+
+.idx-hero-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+  border: 1px solid rgba(15,28,50,0.25);
+  color: var(--navy-dark);
+  transition: all 0.3s;
+}
+
+.idx-hero-btn:hover {
+  border-color: var(--navy-dark);
+  background: rgba(15,28,50,0.05);
+}
+
+.idx-hero-btn-primary {
+  background: var(--navy-dark);
+  color: var(--white);
+  border-color: var(--navy-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.idx-hero-btn-primary::after {
+  /* ホバー時に走るゴールドのシマー */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.45), transparent);
+  transition: left 0.5s;
+}
+
+.idx-hero-btn-primary:hover {
+  background: #14233d;
+}
+.idx-hero-btn-primary:hover::after { left: 130%; }
+
+/* ---- Statement / Pillar polish ---- */
+.idx-statement {
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.idx-mission-pillars .idx-pillar {
+  position: relative;
+}
+.idx-mission-pillars .idx-pillar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.idx-mission-pillars .idx-pillar:hover::before { transform: scaleX(1); }
 
 /* ---- Sections Common ---- */
 .idx-section {
@@ -191,18 +373,20 @@
   max-width: 680px;
 }
 
-/* ---- Mission ---- */
+/* ---- Mission（明色：ヒーローの濃紺から開放感を出す） ---- */
 .idx-mission {
-  background: #0c1a2e;
-  color: var(--white);
+  background: #f6f4ef;
+  color: var(--text);
 }
 
+.idx-mission .idx-bg-canvas { display: none; }
+
 .idx-mission .idx-description {
-  color: rgba(255,255,255,0.55);
+  color: var(--text-light);
 }
 
 .idx-mission .idx-statement {
-  color: var(--white);
+  color: var(--navy-dark);
 }
 
 .idx-mission-pillars {
@@ -215,15 +399,16 @@
 .idx-pillar {
   text-align: center;
   padding: 40px 24px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(184,148,46,0.12);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 4px;
   transition: all 0.4s;
 }
 
 .idx-pillar:hover {
-  border-color: rgba(184,148,46,0.35);
-  background: rgba(184,148,46,0.05);
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 14px 38px rgba(15,28,50,0.08);
   transform: translateY(-4px);
 }
 
@@ -231,7 +416,7 @@
   width: 52px;
   height: 52px;
   margin: 0 auto 20px;
-  color: var(--gold-light);
+  color: var(--gold);
 }
 
 .idx-pillar-icon svg {
@@ -241,22 +426,38 @@
 
 .idx-pillar h4 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
   letter-spacing: 0.04em;
+  color: var(--navy-dark);
 }
 
 .idx-pillar p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-light);
   line-height: 1.7;
 }
 
-/* ---- Vision ---- */
+/* ---- Vision（濃紺：中央の没入セクション） ---- */
 .idx-vision {
-  background: var(--white);
-  color: var(--text);
+  background:
+    radial-gradient(ellipse at 78% 28%, rgba(184,148,46,0.08) 0%, transparent 55%),
+    #0c1a2e;
+  color: var(--white);
 }
+
+.idx-vision::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 46px);
+  pointer-events: none;
+}
+
+.idx-vision .idx-statement { color: var(--white); }
+.idx-vision .idx-description { color: rgba(255,255,255,0.62); }
 
 .idx-vision-stats {
   display: flex;
@@ -295,14 +496,16 @@
   letter-spacing: 0.04em;
 }
 
-/* ---- Values ---- */
+/* ---- Values（明色） ---- */
 .idx-values {
-  background: #0c1a2e;
-  color: var(--white);
+  background: var(--white);
+  color: var(--text);
 }
 
+.idx-values .idx-bg-canvas { display: none; }
+
 .idx-values .idx-statement {
-  color: var(--white);
+  color: var(--navy-dark);
 }
 
 .idx-values-grid {
@@ -312,10 +515,15 @@
   margin-top: 16px;
 }
 
+/* 3列グリッドで7個のとき、最後のカードを全幅にして孤立させない */
+.idx-values-grid .idx-value-card:nth-child(7):last-child {
+  grid-column: 1 / -1;
+}
+
 .idx-value-card {
   padding: 40px 28px;
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(184,148,46,0.1);
+  background: var(--off-white);
+  border: 1px solid var(--border);
   border-radius: 4px;
   transition: all 0.4s;
   position: relative;
@@ -336,8 +544,9 @@
 }
 
 .idx-value-card:hover {
-  border-color: rgba(184,148,46,0.3);
-  background: rgba(184,148,46,0.04);
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 14px 38px rgba(15,28,50,0.08);
   transform: translateY(-4px);
 }
 
@@ -360,6 +569,7 @@
   font-weight: 600;
   margin-bottom: 12px;
   letter-spacing: 0.02em;
+  color: var(--navy-dark);
 }
 
 .r-accent {
@@ -372,15 +582,15 @@
   display: block;
   font-family: var(--font-jp);
   font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--gold-light);
+  font-weight: 500;
+  color: var(--gold);
   margin-top: 4px;
   letter-spacing: 0.08em;
 }
 
 .idx-value-card p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-light);
   line-height: 1.8;
 }
 
@@ -473,7 +683,21 @@
   .idx-hero-scroll { left: 46%; }
   .idx-hero-title { font-size: clamp(1.5rem, 6vw, 2.2rem); letter-spacing: 0.05em; }
   .idx-hero-tagline { font-size: 0.68rem; letter-spacing: 0.25em; }
+  .idx-hero-tagline::before, .idx-hero-tagline::after { width: 22px; }
   .idx-hero-divider { width: 36px; }
+  .idx-hero::after { inset: 16px; }
+  .idx-hero-cta { margin-top: 28px; gap: 12px; }
+  .idx-hero-btn { padding: 11px 26px; font-size: 0.8rem; }
+  .idx-hero-content { padding: 0 24px; }
+  .idx-hero-divider { margin: 0 0 20px; }
+  .idx-hero-eyebrow { font-size: 0.66rem; letter-spacing: 0.26em; }
+  /* スマホは左寄せでも全幅近くに回り込むため、紺スクリムを概ね均一に */
+  .idx-hero-overlay {
+    background:
+      linear-gradient(100deg, rgba(8,17,32,0.86) 0%, rgba(11,22,40,0.74) 55%, rgba(11,22,40,0.58) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 44px);
+  }
 
   .idx-section { padding: 72px 0; }
   .idx-section-inner { padding: 0 20px; }
