@@ -46,17 +46,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rr-partners.co.jp/recruit-ai.html</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rr-partners.co.jp/recruit-bizdev.html</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rr-partners.co.jp/recruit-engineer.html</loc>
+    <loc>https://www.rr-partners.co.jp/recruit-security.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
