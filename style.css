@@ -1452,3 +1452,26 @@ img { max-width: 100%; display: block; }
     font-size: 1rem; /* 18px相当。16px以上を維持しiOSのフォーカスズームを防ぐ */
   }
 }
+
+
+/* ================================
+   about-grid の単独利用（採用詳細ページ）
+   本来は「テキスト | 項目リスト」の2カランだが、項目リストだけを置く
+   ページでは右半分が空く。項目自体を2列に並べて全幅を使う。
+   ================================ */
+.about-grid-single { grid-template-columns: 1fr; }
+.about-grid-single .about-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 60px;
+}
+/* 2列時は右列の先頭にも上罫線を引く */
+.about-grid-single .value-item:nth-child(2) { border-top: 1px solid var(--border); }
+/* 項目が奇数のとき、最後の1つは全幅にして孤立させない */
+.about-grid-single .value-item:nth-child(odd):last-child { grid-column: 1 / -1; }
+
+@media (max-width: 768px) {
+  .about-grid-single .about-values { grid-template-columns: 1fr; }
+  .about-grid-single .value-item:nth-child(2) { border-top: none; }
+  .about-grid-single .value-item:nth-child(odd):last-child { grid-column: auto; }
+}
