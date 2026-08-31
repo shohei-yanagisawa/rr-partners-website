@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px; /* 2026-08-31 全体を一回り拡大（旧16px。ほぼ全てremのためここで一括スケール） */
 }
 
 body {
@@ -1449,6 +1449,6 @@ img { max-width: 100%; display: block; }
   .contact-form textarea,
   .contact-form select {
     padding: 10px 12px;
-    font-size: 16px; /* Prevent iOS zoom on focus */
+    font-size: 1rem; /* 18px相当。16px以上を維持しiOSのフォーカスズームを防ぐ */
   }
 }
