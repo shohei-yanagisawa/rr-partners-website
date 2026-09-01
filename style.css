@@ -156,7 +156,7 @@ img { max-width: 100%; display: block; }
 
 .nav a {
   font-family: var(--font-en);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 400;
   color: var(--navy-dark);
   letter-spacing: 0.06em;
@@ -1297,7 +1297,7 @@ img { max-width: 100%; display: block; }
   .header.header-dark .logo-img { height: 120px; }
 
   .nav { gap: 20px; }
-  .nav a { font-size: 0.78rem; }
+  .nav a { font-size: 0.9rem; }
   .nav-contact { padding: 6px 18px !important; }
 
   .footer-logo-img { height: 180px; margin-left: -50px; margin-top: -54px; }
