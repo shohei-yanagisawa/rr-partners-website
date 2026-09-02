@@ -809,7 +809,7 @@ img { max-width: 100%; display: block; }
 }
 
 .biz-card-dark h3 { color: var(--white); }
-.biz-card-dark p { color: rgba(255,255,255,0.62); }
+.biz-card-dark p { color: rgba(255,255,255,0.8); } /* 2026-09-03 0.62→0.8 紺背景での可読性向上 */
 .biz-card-dark .biz-card-num { color: var(--gold-light); }
 .biz-card-dark > * { position: relative; z-index: 1; }
 
@@ -834,7 +834,7 @@ img { max-width: 100%; display: block; }
 }
 
 .biz-card-featured p {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.8); /* 2026-09-03 0.55→0.8 紺背景での可読性向上 */
 }
 
 .biz-arrow {
