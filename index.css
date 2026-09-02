@@ -510,14 +510,9 @@
 
 .idx-values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2026-09-03 Values 4個化に伴い2×2へ */
   gap: 24px;
   margin-top: 16px;
-}
-
-/* 3列グリッドで7個のとき、最後のカードを全幅にして孤立させない */
-.idx-values-grid .idx-value-card:nth-child(7):last-child {
-  grid-column: 1 / -1;
 }
 
 .idx-value-card {
