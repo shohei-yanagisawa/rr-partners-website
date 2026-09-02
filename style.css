@@ -1119,7 +1119,12 @@ img { max-width: 100%; display: block; }
 
 .footer-nav {
   display: flex;
-  gap: 64px;
+  gap: 40px 48px; /* 2026-09-03 64px→縮小。18px化＋游ゴシックで3カラム合計がグリッド半幅を超えていた */
+  flex-wrap: wrap; /* 入り切らない場合はカラムごと折り返す */
+}
+
+.footer-nav-col {
+  flex-shrink: 0; /* カラムを縮めない（縮むとリンク文言が途中折返しで崩れる） */
 }
 
 .footer-nav-col h4 {
@@ -1140,6 +1145,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.8rem;
   color: rgba(255,255,255,0.4);
   transition: color 0.3s;
+  white-space: nowrap; /* リンク文言は1行を保つ（折返しはカラム単位で行う） */
 }
 
 .footer-nav-col ul a:hover {
