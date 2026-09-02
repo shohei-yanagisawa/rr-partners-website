@@ -808,11 +808,6 @@ img { max-width: 100%; display: block; }
   padding: 4px 12px;
 }
 
-.biz-card-dark h3 { color: var(--white); }
-.biz-card-dark p { color: rgba(255,255,255,0.8); } /* 2026-09-03 0.62→0.8 紺背景での可読性向上 */
-.biz-card-dark .biz-card-num { color: var(--gold-light); }
-.biz-card-dark > * { position: relative; z-index: 1; }
-
 .biz-card-num {
   font-family: var(--font-en);
   font-size: 0.7rem;
@@ -836,6 +831,12 @@ img { max-width: 100%; display: block; }
 .biz-card-featured p {
   color: rgba(255,255,255,0.8); /* 2026-09-03 0.55→0.8 紺背景での可読性向上 */
 }
+
+/* ダークカードの配色は .biz-card 基本定義より後に置く（同詳細度のため定義順で上書きする） */
+.biz-card-dark h3 { color: var(--white); }
+.biz-card-dark p { color: rgba(255,255,255,0.8); } /* 2026-09-03 従来は定義順の問題で #666 が当たっており紺背景で沈んでいた */
+.biz-card-dark .biz-card-num { color: var(--gold-light); }
+.biz-card-dark > * { position: relative; z-index: 1; }
 
 .biz-arrow {
   display: inline-block;
