@@ -838,33 +838,51 @@ img { max-width: 100%; display: block; }
 .biz-card-dark .biz-card-num { color: var(--gold-light); }
 .biz-card-dark > * { position: relative; z-index: 1; }
 
-/* メディア事業カード: R&R SIGNAL ワードマークを下部の署名として敷く（insights本家ロゴのテキスト再現） */
+/* メディア事業カード: SIGNALブランドのダークバッジ＋行き先ラベル */
 .biz-media-foot {
   margin-top: 22px;
-  padding-top: 16px;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.biz-signal-logo {
+.biz-signal-chip {
   display: inline-flex;
   align-items: center;
+  padding: 9px 16px;
+  background: #15181c; /* insights本家のバッジ色 */
+  border-radius: 8px;
   font-family: system-ui, -apple-system, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   font-weight: 800;
   letter-spacing: -0.015em;
-  color: rgba(0, 0, 0, 0.87);
+  color: #ffffff;
   white-space: nowrap;
+  transition: background 0.3s;
 }
 
-.biz-signal-logo span { color: #0099eb; }
+.biz-signal-chip span { color: #0099eb; }
 
-.biz-signal-logo i {
-  width: 7px;
-  height: 7px;
+.biz-signal-chip i {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #0099eb;
-  margin-left: 8px;
+  margin-left: 7px;
+}
+
+.biz-card:hover .biz-signal-chip { background: #23272d; }
+
+.biz-media-cta {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  white-space: nowrap;
 }
 
 .biz-arrow {
