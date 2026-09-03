@@ -845,8 +845,8 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: flex-start; /* バッジとラベルは離さずひとかたまりに */
+  gap: 14px;
   flex-wrap: wrap;
 }
 
