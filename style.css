@@ -838,14 +838,19 @@ img { max-width: 100%; display: block; }
 .biz-card-dark .biz-card-num { color: var(--gold-light); }
 .biz-card-dark > * { position: relative; z-index: 1; }
 
-/* メディア事業カードの R&R SIGNAL ワードマーク（insights本家ロゴのテキスト再現） */
+/* メディア事業カード: R&R SIGNAL ワードマークを下部の署名として敷く（insights本家ロゴのテキスト再現） */
+.biz-media-foot {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  line-height: 1;
+}
+
 .biz-signal-logo {
   display: inline-flex;
   align-items: center;
-  margin-top: 20px;
-  margin-right: 12px;
   font-family: system-ui, -apple-system, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', sans-serif;
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 800;
   letter-spacing: -0.015em;
   color: rgba(0, 0, 0, 0.87);
