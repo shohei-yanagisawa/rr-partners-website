@@ -877,6 +877,27 @@ img { max-width: 100%; display: block; }
 
 .biz-card:hover .biz-signal-chip { background: #23272d; }
 
+/* 研修事業カード: monopole ブランドのバッジ（生成りの紙色×墨のロゴ。monopole サイトの配色に合わせる） */
+.biz-monopole-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  box-sizing: border-box;
+  height: 49px; /* R&R SIGNAL のバッジと高さを揃える */
+  padding: 0 16px;
+  background: #F3EFE7;
+  border: 1px solid #DCD4C5;
+  border-radius: 8px;
+  color: #17171A;
+  white-space: nowrap;
+  transition: background 0.3s;
+}
+
+.biz-monopole-chip svg { width: 22px; height: 22px; flex: none; }
+.biz-monopole-chip img { display: block; width: 88px; height: auto; }
+
+.biz-card:hover .biz-monopole-chip { background: #EAE4D7; }
+
 .biz-media-cta {
   font-size: 0.76rem;
   font-weight: 600;
